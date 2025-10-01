@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>АвтоВердикт — Независимая автоэкспертиза после ДТП</title>
+  <meta name="description" content="Независимая автоэкспертиза после ДТП: расчёт ущерба, выезд, отчёт для суда, юридическое сопровождение. Прозрачные цены." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <!-- Mask plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b glass supports-[padding:max(0px,var(--sat))] with-safe-top">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo-avtoverdikt.jpg" alt="АвтоВердикт" class="w-12 h-12 object-contain bg-white shadow-sm" />
+        <div class="font-semibold">АвтоВердикт</div>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Основная навигация">
+        <a href="#services" class="transition-colors hover-accent">Услуги</a>
+        <a href="#pricing" class="transition-colors hover-accent">Цены</a>
+        <a href="#process" class="transition-colors hover-accent">Процесс</a>
+        <a href="#contacts" class="transition-colors hover-accent">Контакты</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="menuBtn" class="p-2 rounded-xl border border-slate-300" aria-label="Меню" aria-controls="mobileNav" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+      <a href="tel:+74953753599" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold accent-link">
+        <i data-lucide="phone"></i> +7 (495) 375‑35‑99
+      </a>
+    </div>
+    <div id="mobileNav" class="md:hidden hidden border-t">
+      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+        <a href="#services" class="py-2">Услуги</a>
+        <a href="#pricing" class="py-2">Цены</a>
+        <a href="#process" class="py-2">Процесс</a>
+        <a href="#contacts" class="py-2">Контакты</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile CTA bar -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 border-t border-slate-200 backdrop-blur supports-[padding:max(0px,var(--sab))] with-safe-bottom">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid grid-cols-2 gap-3">
+      <a href="tel:+74953753599" class="inline-flex items-center justify-center px-4 py-3 rounded-xl border border-slate-300 text-slate-900">
+        <i data-lucide="phone" class="w-4 h-4 mr-2"></i> Позвонить
+      </a>
+      <a href="#lead" class="inline-flex items-center justify-center px-4 py-3 rounded-xl accent-bg text-white">
+        Заявка
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden hero">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight text-white drop-shadow">Независимая автоэкспертиза <span class="accent-highlight">после ДТП</span></h1>
+        <p class="mt-4 text-slate-100/90 drop-shadow">Помогаем рассчитать реальный ущерб и законно взыскать компенсацию. Работаем прозрачно, по договору, с выездом по городу.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="#lead" class="inline-flex items-center justify-center px-4 py-3 rounded-xl accent-bg text-white w-full sm:w-auto">Получить консультацию</a>
+          <a href="#pricing" class="inline-flex items-center justify-center px-4 py-3 rounded-xl border border-white/70 text-white hover:bg-white/10 w-full sm:w-auto">Смотреть цены</a>
+        </div>
+      </div>
+      <div class="bg-white/95 rounded-3xl p-6 shadow-sm border border-slate-200" id="lead">
+        <div class="font-semibold mb-3">Заявка на консультацию</div>
+        <form id="leadForm" class="grid gap-3">
+          <input required name="name" placeholder="Ваше имя" class="px-3 py-3 rounded-xl border" />
+          <input required name="phone" id="phone" placeholder="Телефон" inputmode="tel" class="px-3 py-3 rounded-xl border" />
+          <input name="email" type="email" placeholder="E‑mail (необязательно)" class="px-3 py-3 rounded-xl border" />
+          <textarea name="case" placeholder="Коротко опишите случай" class="px-3 py-3 rounded-xl border min-h-[96px]"></textarea>
+          <button type="submit" class="px-4 py-3 rounded-xl accent-bg text-white flex items-center justify-center gap-2">Отправить <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+          <p class="text-xs text-slate-600">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+        </form>
+        <div id="leadSuccess" class="hidden p-4 rounded-xl accent-soft border accent-border">Спасибо! Заявка отправлена.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-14">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm font-semibold accent-text">НАШИ УСЛУГИ</div>
+      <h2 class="text-2xl md:text-3xl font-bold mt-1">Чем мы помогаем</h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+          <i data-lucide="car" class="w-6 h-6"></i>
+          <div class="font-semibold mt-3">Оценка ущерба после ДТП</div>
+          <div class="text-sm text-slate-600 mt-1">Выезд эксперта, фотофиксация, калькуляция ремонта.</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+          <i data-lucide="file-text" class="w-6 h-6"></i>
+          <div class="font-semibold mt-3">Экспертиза качества ремонта</div>
+          <div class="text-sm text-slate-600 mt-1">Проверим СТО и подготовим заключение для претензии.</div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+          <div class="font-semibold mt-3">Юридическое сопровождение</div>
+          <div class="text-sm text-slate-600 mt-1">Претензии, досудебный порядок, представительство в суде.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    Certificates block temporarily disabled
+  <section id="certs" class="py-14 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm font-semibold accent-text">ДОКУМЕНТЫ</div>
+      <h2 class="text-2xl md:text-3xl font-bold mt-1">Сертификаты и лицензии</h2>
+      <p class="mt-2 text-slate-600">Официальные документы, подтверждающие квалификацию и право на проведение экспертиз.</p>
+      <ul class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4" role="list">
+        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-1.jpg" alt="Сертификат 1" class="w-full h-full object-cover" /></button></li>
+        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-2.jpg" alt="Сертификат 2" class="w-full h-full object-cover" /></button></li>
+        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-3.jpg" alt="Сертификат 3" class="w-full h-full object-cover" /></button></li>
+        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-4.jpg" alt="Лицензия" class="w-full h-full object-cover" /></button></li>
+      </ul>
+    </div>
+
+    Lightbox modal
+    <div id="lb" class="fixed inset-0 hidden bg-black/70 items-center justify-center p-4 z-50">
+      <div class="relative max-w-3xl w-full">
+        <button id="lbClose" class="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow"><i data-lucide="x"></i></button>
+        <img id="lbImg" src="" alt="Документ" class="w-full h-auto rounded-xl" />
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- Badges -->
+  <section class="py-6">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-4">
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-slate-200"><i data-lucide="shield-check" class="w-5 h-5"></i><div class="text-sm font-medium">Отчёты соответствуют практике</div></div>
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-slate-200"><i data-lucide="check-circle-2" class="w-5 h-5"></i><div class="text-sm font-medium">Честные и прозрачные цены</div></div>
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-slate-200"><i data-lucide="clock" class="w-5 h-5"></i><div class="text-sm font-medium">Срок – от 1 рабочего дня</div></div>
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-slate-200"><i data-lucide="file-text" class="w-5 h-5"></i><div class="text-sm font-medium">Пакет документов в суд</div></div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm font-semibold accent-text">СТОИМОСТЬ</div>
+      <h2 class="text-2xl md:text-3xl font-bold mt-1">Простые тарифы</h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl shadow-sm border border-slate-200 bg-white p-6">
+          <div class="flex items-baseline justify-between">
+            <h3 class="text-lg font-semibold">Базовый</h3>
+            <div class="flex items-center gap-1 text-2xl font-bold"><i data-lucide="badge-russian-ruble" class="w-5 h-5"></i>6 000</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Консультация</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Калькуляция по фото/акту</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Готовность от 1 дня</li>
+          </ul>
+          <button class="orderBtn mt-6 w-full px-4 py-2 rounded-xl accent-bg text-white">Заказать</button>
+        </div>
+        <div class="rounded-2xl shadow-sm border border-slate-200 bg-white p-6">
+          <div class="flex items-baseline justify-between">
+            <h3 class="text-lg font-semibold">Выезд эксперта</h3>
+            <div class="flex items-center gap-1 text-2xl font-bold"><i data-lucide="badge-russian-ruble" class="w-5 h-5"></i>8 000</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Осмотр на месте</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Экспертное заключение</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Фото и расчёт</li>
+          </ul>
+          <button class="orderBtn mt-6 w-full px-4 py-2 rounded-xl accent-bg text-white">Заказать</button>
+        </div>
+        <div class="rounded-2xl shadow-sm border border-slate-200 bg-white p-6">
+          <div class="flex items-baseline justify-between">
+            <h3 class="text-lg font-semibold">Полный отчёт</h3>
+            <div class="flex items-center gap-1 text-2xl font-bold"><i data-lucide="badge-russian-ruble" class="w-5 h-5"></i>12 000</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Выезд + заключение</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Оценка годных остатков</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Пакет документов в суд</li>
+          </ul>
+          <button class="orderBtn mt-6 w-full px-4 py-2 rounded-xl accent-bg text-white">Заказать</button>
+        </div>
+      </div>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-2xl shadow-sm border border-slate-200 bg-white p-6">
+          <div class="flex items-baseline justify-between">
+            <h3 class="text-lg font-semibold">Юр. сопровождение</h3>
+            <div class="flex items-center gap-1 text-2xl font-bold"><i data-lucide="badge-russian-ruble" class="w-5 h-5"></i>5 000</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Подготовка претензий</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Представительство по договору</li>
+          </ul>
+          <button class="orderBtn mt-6 w-full px-4 py-2 rounded-xl accent-bg text-white">Заказать</button>
+        </div>
+        <div class="rounded-2xl shadow-sm border border-slate-200 bg-white p-6">
+          <div class="flex items-baseline justify-between">
+            <h3 class="text-lg font-semibold">Грузовой / спецтехника</h3>
+            <div class="flex items-center gap-1 text-2xl font-bold"><i data-lucide="badge-russian-ruble" class="w-5 h-5"></i>10 000</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Выезд эксперта</li>
+            <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>Полный пакет документов</li>
+          </ul>
+          <button class="orderBtn mt-6 w-full px-4 py-2 rounded-xl accent-bg text-white">Заказать</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm font-semibold accent-text">КАК ЭТО РАБОТАЕТ</div>
+      <h2 class="text-2xl md:text-3xl font-bold mt-1">4 шага к компенсации</h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="relative pl-9"><div class="absolute left-0 top-0 w-7 h-7 rounded-full accent-bg text-white grid place-items-center text-sm font-semibold">1</div><div class="font-semibold">Заявка</div><div class="text-sm text-slate-600 mt-1">Оставляете контакты — перезваниваем в течение часа.</div></div>
+        <div class="relative pl-9"><div class="absolute left-0 top-0 w-7 h-7 rounded-full accent-bg text-white grid place-items-center text-sm font-semibold">2</div><div class="font-semibold">Осмотр</div><div class="text-sm text-slate-600 mt-1">Выезд эксперта, фотофиксация и сбор документов.</div></div>
+        <div class="relative pl-9"><div class="absolute left-0 top-0 w-7 h-7 rounded-full accent-bg text-white grid place-items-center text-sm font-semibold">3</div><div class="font-semibold">Отчёт</div><div class="text-sm text-slate-600 mt-1">Получаете заключение, соответствующее требованиям суда.</div></div>
+        <div class="relative pl-9"><div class="absolute left-0 top-0 w-7 h-7 rounded-full accent-bg text-white grid place-items-center text-sm font-semibold">4</div><div class="font-semibold">Взыскание</div><div class="text-sm text-slate-600 mt-1">Помогаем досудебно и представляем интересы в суде.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="py-14 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm font-semibold accent-text">ОТЗЫВЫ</div>
+      <h2 class="text-2xl md:text-3xl font-bold mt-1">Нас рекомендуют</h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6"><div class="font-semibold">Иван П.</div><div class="text-sm text-slate-600 mt-1">“Сделали расчёт быстро, помогли с возвратом денег со страховой.”</div></div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6"><div class="font-semibold">Анна К.</div><div class="text-sm text-slate-600 mt-1">“Отчёт приняли без вопросов, юрист всё объяснил.”</div></div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6"><div class="font-semibold">Сергей Т.</div><div class="text-sm text-slate-600 mt-1">“Выезд в день обращения, сервис понравился.”</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-14">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm font-semibold accent-text">FAQ</div>
+      <h2 class="text-2xl md:text-3xl font-bold mt-1">Частые вопросы</h2>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6"><div class="font-semibold">Сколько готовится отчёт?</div><div class="text-sm text-slate-600 mt-1">Обычно от одного рабочего дня, точные сроки зависят от сложности.</div></div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6"><div class="font-semibold">Работаете ли вы с КАСКО/ОСАГО?</div><div class="text-sm text-slate-600 mt-1">Да, готовим документы в рамках обеих программ.</div></div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6"><div class="font-semibold">Можно ли дистанционно?</div><div class="text-sm text-slate-600 mt-1">Предварительный расчёт по фото возможен, выезд — по договорённости.</div></div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6"><div class="font-semibold">Откуда цены?</div><div class="text-sm text-slate-600 mt-1">Используем актуальные нормативы и базы расчётов, фиксируем в отчёте.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts" class="py-16 bg-white mb-20 md:mb-0">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div class="md:col-span-1">
+        <div class="text-sm font-semibold accent-text">КОНТАКТЫ</div>
+        <h2 class="text-2xl md:text-3xl font-bold mt-1">Связаться с нами</h2>
+        <div class="mt-6 space-y-3 text-slate-700">
+          <div class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> +7 (495) 375‑35‑99</div>
+          <div class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> auto.verdict24@gmail.com</div>
+          <!-- Адрес добавим позже -->
+        </div>
+      </div>
+      <div class="md:col-span-2 h-[240px] md:h-[320px] rounded-2xl border border-slate-200 grid place-items-center text-slate-500">
+        <div class="text-center text-sm md:text-base">
+          <i data-lucide="map-pin" class="w-6 h-6 mx-auto"></i>
+          Здесь будет карта (встройка Яндекс/Google)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8">
+    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>© <span id="year"></span> «АвтоВердикт». Все права защищены.</div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="transition-colors hover-accent">Политика обработки ПД</a>
+        <a href="#" class="transition-colors hover-accent">Публичная оферта</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Endpoint config
+    var FORM_ENDPOINT = 'send.php';
+    // If opened locally (file://), use demo mode automatically
+    var DEMO_MODE = (location.protocol === 'file:');
+
+    // Icons & mask init
+    $(function(){
+      if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
+      if ($.fn && typeof $.fn.mask === 'function') {
+        $('#phone').mask('+7 (000) 000-00-00', {placeholder: '+7 (___) ___-__-__'});
+      }
+      // Year
+      var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    });
+
+    // Mobile menu
+    $('#menuBtn').on('click', function(){
+      var $nav = $('#mobileNav'); var vis = $nav.toggleClass('hidden').is(':visible');
+      $(this).attr('aria-expanded', vis ? 'true' : 'false');
+    });
+
+    // Lightbox
+    $(document).on('click', '.certThumb', function(){
+      var src = $(this).find('img').attr('src'); $('#lbImg').attr('src', src); $('#lb').removeClass('hidden').addClass('flex');
+    });
+    $('#lb, #lbClose').on('click', function(e){
+      if (e.target.id==='lb' || e.target.id==='lbClose' || $(e.target).closest('#lbClose').length){ $('#lb').addClass('hidden').removeClass('flex'); }
+    });
+
+    // Scroll to form
+    $('.orderBtn').on('click', function(){ var el = document.querySelector('#lead'); if (el) el.scrollIntoView({behavior:'smooth'}); });
+
+    // Submit
+    $('#leadForm').on('submit', async function(e){
+      e.preventDefault();
+      var data = Object.fromEntries(new FormData(this).entries());
+      try {
+        if (!DEMO_MODE && FORM_ENDPOINT) {
+          const res = await fetch(FORM_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+          if (!res.ok) throw new Error('HTTP '+res.status);
+        } else {
+          console.log('[DEMO] payload', data);
+        }
+        $('#leadForm').addClass('hidden'); $('#leadSuccess').removeClass('hidden');
+      } catch (err) {
+        console.error('Send error:', err); alert('Не удалось отправить. Попробуйте позже.');
+      }
+    });
+
+    // Self-checks (tests)
+    console.assert(document.querySelectorAll('h1').length === 1, 'Ожидается один <h1>');
+    console.assert(document.querySelector('#leadForm'), 'Должна быть форма #leadForm');
+    console.assert(document.querySelector('a[href^="tel:"]'), 'Должна быть tel: ссылка');
+    console.assert(document.getElementById('certs'), 'Ожидается раздел #certs');
+    console.assert(getComputedStyle(document.querySelector('.hero')).backgroundImage.includes('url'), 'Фон hero должен быть картинкой');
+  </script>
+</body>
+</html>
