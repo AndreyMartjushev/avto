@@ -16,11 +16,20 @@ html {
 }
 
 .hero {
-  background-image: linear-gradient(rgba(15, 31, 43, 0.65), rgba(15, 31, 43, 0.65)),
-    url('https://images.unsplash.com/photo-1607860108855-1741a14d8e2b?q=80&w=1600&auto=format&fit=crop');
+  background-image: linear-gradient(rgba(12, 19, 27, 0.82), rgba(12, 19, 27, 0.82)),
+    url('bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.hero .accent-bg {
+  box-shadow: 0 16px 32px rgba(15, 31, 43, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.hero .accent-bg:hover {
+  box-shadow: 0 20px 40px rgba(15, 31, 43, 0.55);
 }
 
 .accent-bg {
@@ -75,8 +84,12 @@ html {
 }
 
 /* Reserve space so the sticky mobile CTA doesn't cover the footer */
-@media (max-width: 767px) {
+body {
+  padding-bottom: 6.5rem;
+}
+
+@media (min-width: 768px) {
   body {
-    padding-bottom: 6rem;
+    padding-bottom: 0;
   }
 }
