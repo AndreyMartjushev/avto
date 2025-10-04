@@ -112,30 +112,7 @@
     </div>
   </section>
 
-  <!--
-    Certificates block temporarily disabled
-  <section id="certs" class="py-14 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-sm font-semibold accent-text">ДОКУМЕНТЫ</div>
-      <h2 class="text-2xl md:text-3xl font-bold mt-1">Сертификаты и лицензии</h2>
-      <p class="mt-2 text-slate-600">Официальные документы, подтверждающие квалификацию и право на проведение экспертиз.</p>
-      <ul class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4" role="list">
-        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-1.jpg" alt="Сертификат 1" class="w-full h-full object-cover" /></button></li>
-        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-2.jpg" alt="Сертификат 2" class="w-full h-full object-cover" /></button></li>
-        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-3.jpg" alt="Сертификат 3" class="w-full h-full object-cover" /></button></li>
-        <li><button class="certThumb w-full aspect-[3/4] overflow-hidden rounded-xl border border-slate-200 bg-slate-100"><img loading="lazy" src="assets/cert-4.jpg" alt="Лицензия" class="w-full h-full object-cover" /></button></li>
-      </ul>
-    </div>
-
-    Lightbox modal
-    <div id="lb" class="fixed inset-0 hidden bg-black/70 items-center justify-center p-4 z-50">
-      <div class="relative max-w-3xl w-full">
-        <button id="lbClose" class="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow"><i data-lucide="x"></i></button>
-        <img id="lbImg" src="" alt="Документ" class="w-full h-auto rounded-xl" />
-      </div>
-    </div>
-  </section>
-  -->
+  
 
   <!-- Badges -->
   <section class="py-6">
@@ -344,7 +321,6 @@
     console.assert(document.querySelectorAll('h1').length === 1, 'Ожидается один <h1>');
     console.assert(document.querySelector('#leadForm'), 'Должна быть форма #leadForm');
     console.assert(document.querySelector('a[href^="tel:"]'), 'Должна быть tel: ссылка');
-    console.assert(document.getElementById('certs'), 'Ожидается раздел #certs');
     console.assert(getComputedStyle(document.querySelector('.hero')).backgroundImage.includes('url'), 'Фон hero должен быть картинкой');
   </script>
 </body>
